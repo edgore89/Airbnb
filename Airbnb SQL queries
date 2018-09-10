@@ -1,0 +1,37 @@
+1) What's the most expensive listing? What else can you tell me about the listing?
+The most expensive listing is at the Bright & classy stay in Amsterdam. The price for one night is 999 euros.  It is located in Bos en Lommer and it is an entire home rental, with a minimum of 2 nights stay. The host's name is Kristel.
+
+Query:
+
+select *, max(price) price
+from listings
+
+
+
+
+2) What neighborhoods seem to be the most popular?
+De Pijp - Rivierenbuurt, it has ) availability and an average of 9.95 reviews per month.
+
+Query:
+
+select neighbourhood, min(availability_365), max(reviews_per_month)
+from listings
+
+
+
+
+3) What time of year is the cheapest time to go to your city? What about the busiest?
+The cheapest time would be to in November(2017-11-01).
+The busiest time to go would be in October(2017-10-01).
+
+Query:
+select neighbourhood, price, last_review, availability_365
+from listings
+order by price asc
+limit 10
+
+
+select neighbourhood, price, last_review, availability_365
+from listings
+order by price desc
+limit 10
